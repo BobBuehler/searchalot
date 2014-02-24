@@ -21,7 +21,7 @@ class AStar:
         self.came_from = {}
         
         while self.open_set and end not in self.closed_set:
-            current = min(reversed(self.open_set), key=lambda n: self.f_scores[n])
+            current = min(self.open_set, key=lambda n: self.f_scores[n])
             self.open_set.remove(current)
             self.closed_set.add(current)
             self.closed_list.append(current)
