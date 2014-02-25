@@ -1,6 +1,8 @@
 import math
 
 def _random_ease_in_out(min, max, power, random):
+    if min == max:
+        return min
     t = math.pow(random.random(), power) / 2
     if (random.random() > .5):
         t = 1 - t

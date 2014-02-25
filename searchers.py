@@ -37,7 +37,7 @@ class AStar:
                     h_value = self.h(neighbor, end)
                     self.f_scores[neighbor] = tentative_g + h_value
                     r_value = self.r(neighbor)
-                    if tentative_g <= r_value and h_value <= r_value and neighbor not in self.open_set:
+                    if (tentative_g <= r_value or h_value <= r_value) and neighbor not in self.open_set:
                         self.open_set.append(neighbor)
 
         self.path = reconstruct_path(self.came_from, end)    
@@ -70,7 +70,7 @@ class Reach:
     def calculate(self):
         height = len(self.grid)
         width = len(self.grid[0])
-        self.value = grids.generate(width, height, 0, 0)
+        self.value = grids.generate(width, height, 0, 0, None)
         a = AStar(
             lambda n: grids.neighbor_nodes(self.grid, n),
             lambda n1, n2: self.grid[n1[0]][n1[1]],
