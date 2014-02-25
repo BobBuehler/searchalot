@@ -14,6 +14,10 @@ def main():
     end = (16,20)
     
     g = grids.generate(width, height, minCost, maxCost, random)
+    grids.set_row(g, 5, highwayCost)
+    grids.set_row(g, 15, highwayCost)
+    grids.set_col(g, 5, highwayCost)
+    grids.set_col(g, 25, highwayCost)
     def cost_callback(y, x):
         v = g[y][x]
         v = int(float(v) / maxCost * 127)
