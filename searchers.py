@@ -1,4 +1,3 @@
-import blist
 import grids
 
 # n(n) calculates the neighbors of n
